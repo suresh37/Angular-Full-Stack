@@ -16,9 +16,12 @@ app.use(express.urlencoded({ extended: false }));
 
 let mongodbURI;
 if (process.env.NODE_ENV === 'test') {
+  console.log("mongoURI Test:" +mongodbURI)
   mongodbURI = process.env.MONGODB_TEST_URI;
 } else {
-  mongodbURI = process.env.MONGODB_URI;
+  //mongodbURI = process.env.MONGODB_URI;
+  mongodbURI = 'mongodb://suresh:suresh007@ds135068.mlab.com:35068/angularfullstack';
+  console.log("mongoURI:" +mongodbURI)
   app.use(morgan('dev'));
 }
 
